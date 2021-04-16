@@ -8,6 +8,7 @@
 
 - REACT
 - Typescript
+- Craco
 - jsonplaceholder
 - React-router
 - Axios
