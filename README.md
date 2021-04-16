@@ -11,5 +11,6 @@
 - jsonplaceholder
 - Axios
 - React-router
+-  Tailwindcss
 
 ---
