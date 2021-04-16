@@ -2,12 +2,14 @@ import React from "react";
 import "./App.css";
 
 import ListContainer from "./containers/ListContainer";
+import Navigation from "./components/Navigation";
 
 const App: React.FC = () => {
   return (
-    <div>
+    <React.Fragment>
+      <Navigation />
       <ListContainer />
-    </div>
+    </React.Fragment>
   );
 };
 

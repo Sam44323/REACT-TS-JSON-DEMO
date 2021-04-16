@@ -10,7 +10,6 @@
 - Typescript
 - jsonplaceholder
 - Axios
-- React-router
--  Tailwindcss
+- Tailwindcss
 
 ---
