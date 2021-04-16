@@ -1,7 +1,6 @@
 import React, { useState, useEffect, memo, useCallback } from "react";
 import axios from "axios";
 
-import styles from "./ListContainer.module.css";
 import ListItem from "../components/ListItem";
 import { ItemStateType } from "../utils/Obj-Interfaces";
 
@@ -28,7 +27,7 @@ const ListContainer: React.FC = memo(() => {
   }, []);
 
   return (
-    <div className={styles.listContainer}>
+    <div>
       {hasValue
         ? items.map((item) => (
             <ListItem
