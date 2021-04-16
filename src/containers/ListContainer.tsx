@@ -27,7 +27,7 @@ const ListContainer: React.FC = memo(() => {
   }, []);
 
   return (
-    <div>
+    <div className="w-3/5 m-auto mt-10">
       {hasValue
         ? items.map((item) => (
             <ListItem
