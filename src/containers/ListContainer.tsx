@@ -9,15 +9,23 @@ const ListContainer: React.FC = memo(() => {
     { id: 0, title: "demo", completed: false, userId: 0 },
   ]);
   const [hasValue, setHasValue] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/todos?_limit=15"
-      );
-      if (response.data) {
-        setItems(response.data);
-        setHasValue(true);
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          "https://jsonplaceholder.typicode.com/todos?_limit=15"
+        );
+        if (response.data) {
+          setItems(response.data);
+          setHasValue(true);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
       }
     })();
   }, []);
