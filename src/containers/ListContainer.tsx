@@ -35,18 +35,25 @@ const ListContainer: React.FC = memo(() => {
   }, []);
 
   return (
-    <div className="w-3/5 m-auto mt-10">
-      {hasValue
-        ? items.map((item) => (
-            <ListItem
-              id={item.id}
-              title={item.title}
-              key={item.id}
-              showDetails={detailsHandler}
-            />
-          ))
-        : null}
-    </div>
+    <React.Fragment>
+      {loading && (
+        <div className="text-center mt-4  max-w-lg  mx-auto bg-gray-100 py-4 text-lg text-gray-500">
+          Loading...
+        </div>
+      )}
+      <div className="w-3/5 m-auto mt-10">
+        {hasValue
+          ? items.map((item) => (
+              <ListItem
+                id={item.id}
+                title={item.title}
+                key={item.id}
+                showDetails={detailsHandler}
+              />
+            ))
+          : null}
+      </div>
+    </React.Fragment>
   );
 });
 
