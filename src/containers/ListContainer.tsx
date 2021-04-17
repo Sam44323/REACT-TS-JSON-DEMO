@@ -1,10 +1,12 @@
 import React, { useState, useEffect, memo, useCallback } from "react";
 import axios from "axios";
+import { RouteComponentProps } from "react-router-dom";
 
 import ListItem from "../components/ListItem";
 import { ItemStateType } from "../utils/Obj-Interfaces";
+import Loading from "../components/Loading";
 
-const ListContainer: React.FC = memo(() => {
+const ListContainer: React.FC<RouteComponentProps> = memo((props) => {
   const [items, setItems] = React.useState<ItemStateType[]>([
     { id: 0, title: "demo", completed: false, userId: 0 },
   ]);
@@ -30,17 +32,16 @@ const ListContainer: React.FC = memo(() => {
     })();
   }, []);
 
-  const detailsHandler = useCallback((id: number) => {
-    console.log(id);
-  }, []);
+  const detailsHandler = useCallback(
+    (id: number) => {
+      props.history.push(`/details/${id}`);
+    },
+    [props]
+  );
 
   return (
     <React.Fragment>
-      {loading && (
-        <div className="text-center mt-4  max-w-lg  mx-auto bg-gray-100 py-4 text-lg text-gray-500">
-          Loading...
-        </div>
-      )}
+      {loading && <Loading />}
       <div className="w-3/5 m-auto mt-10">
         {hasValue
           ? items.map((item) => (
